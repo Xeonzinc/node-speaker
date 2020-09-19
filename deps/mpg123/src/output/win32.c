@@ -55,10 +55,11 @@ static int open_win32(struct audio_output_struct *ao)
 
     state->play_done_event = CreateEvent(0,FALSE,FALSE,0);
     if(state->play_done_event == INVALID_HANDLE_VALUE) return -1;
-
+    cout << "Hello1";
     /* FIXME: real device enumeration by capabilities? */
     dev_id = WAVE_MAPPER;    /* probably does the same thing */
     if (ao->device) {
+        cout << "Hello2a";
         /* Find device id of device with the same name as ao->device */
         /* Device names from waveOutGetDevCaps are limited to 32  */ 
         /* characters, so truncate ao->device for comparison */ 
@@ -72,6 +73,7 @@ static int open_win32(struct audio_output_struct *ao)
             }
         }
     } else {
+        cout << "Hello2b";
         ao->device = "WaveMapper";
     }
     /* FIXME: support for smth besides MPG123_ENC_SIGNED_16? */
