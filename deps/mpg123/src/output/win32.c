@@ -57,12 +57,12 @@ static int open_win32(struct audio_output_struct *ao)
     if(state->play_done_event == INVALID_HANDLE_VALUE) return -1;
     /* FIXME: real device enumeration by capabilities? */
     dev_id = WAVE_MAPPER;    /* probably does the same thing */
-    printf("Test1")
+    printf("Test1");
     if (ao->device) {
         /* Find device id of device with the same name as ao->device */
         /* Device names from waveOutGetDevCaps are limited to 32  */ 
         /* characters, so truncate ao->device for comparison */ 
-        printf("Test2a")
+        printf("Test2a");
         ao->device[31] = '\0';
         for (UINT i = 0; i < waveOutGetNumDevs(); ++i) {
             WAVEOUTCAPS caps;
@@ -73,7 +73,7 @@ static int open_win32(struct audio_output_struct *ao)
             }
         }
     } else {
-        printf("Test2b")
+        printf("Test2b");
         ao->device = "WaveMapper";
     }
     /* FIXME: support for smth besides MPG123_ENC_SIGNED_16? */
