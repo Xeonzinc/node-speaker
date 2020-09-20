@@ -51,6 +51,8 @@ napi_value speaker_open(napi_env env, napi_callback_info info) {
   ao->rate = _rate;
   assert(napi_get_value_int32(env, args[2], &ao->format) == napi_ok); /* MPG123_ENC_* format */
 printf("----BINDINGS FILE-----");
+  printf(env);
+    prinf(args[3]);
   if (is_string(env, args[3])) {
     printf("INSIDE BINDINGS FILE");
     size_t device_string_size;
