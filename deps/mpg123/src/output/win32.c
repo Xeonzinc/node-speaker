@@ -58,7 +58,7 @@ static int open_win32(struct audio_output_struct *ao)
     /* FIXME: real device enumeration by capabilities? */
     dev_id = WAVE_MAPPER;    /* probably does the same thing */
     printf("Test1/n");
-    printf(ao->device);
+    printf("device: %s", ao->device);
     if (ao->device) {
         /* Find device id of device with the same name as ao->device */
         /* Device names from waveOutGetDevCaps are limited to 32  */ 
