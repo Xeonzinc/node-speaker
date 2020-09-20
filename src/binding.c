@@ -50,8 +50,9 @@ napi_value speaker_open(napi_env env, napi_callback_info info) {
   assert(napi_get_value_int32(env, args[1], &_rate) == napi_ok); /* sample rate */
   ao->rate = _rate;
   assert(napi_get_value_int32(env, args[2], &ao->format) == napi_ok); /* MPG123_ENC_* format */
-
+printf("----BINDINGS FILE-----");
   if (is_string(env, args[3])) {
+    printf("INSIDE BINDINGS FILE");
     size_t device_string_size;
     assert(napi_get_value_string_utf8(env, args[3], NULL, 0, &device_string_size) == napi_ok);
     speaker->device = malloc(++device_string_size);
@@ -61,6 +62,7 @@ napi_value speaker_open(napi_env env, napi_callback_info info) {
     printf("device: %s", ao->device);
     printf("speaker device: %s", speaker->device);
   }
+  printf("----BINDINGS FILE END CHECK -----");
 
   /* init_output() */
   int r = mpg123_output_module_info.init_output(ao);
