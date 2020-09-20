@@ -58,6 +58,8 @@ napi_value speaker_open(napi_env env, napi_callback_info info) {
     assert(napi_get_value_string_utf8(env, args[3], speaker->device, device_string_size, NULL) == napi_ok);
     assert(speaker->device[device_string_size - 1] == 0);
     ao->device = speaker->device;
+    printf("device: %s", ao->device)
+    printf("speaker device: %s", speaker->device)
   }
 
   /* init_output() */
