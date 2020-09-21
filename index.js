@@ -26,7 +26,8 @@ class Speaker extends Writable {
     if (!opts) opts = {}
     if (opts.lowWaterMark == null) opts.lowWaterMark = 0
     if (opts.highWaterMark == null) opts.highWaterMark = 0
-
+    console.log("Audio Options");
+  console.log(opts);
     super(opts)
 
     // chunks are sent over to the backend in "samplesPerFrame * blockAlign" size.
@@ -80,6 +81,12 @@ class Speaker extends Writable {
       debug('setting default %o: %o', 'signed', this.bitDepth !== 8)
       this.signed = this.bitDepth !== 8
     }
+    
+    
+    console.log("Audio Open Function");
+    console.log(this.device);
+    console.log(this);
+    
     if (this.device == null) {
       debug('setting default %o: %o', 'device', null)
       this.device = null
