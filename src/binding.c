@@ -28,6 +28,8 @@ typedef struct {
 bool is_string(napi_env env, napi_value value) {
   napi_valuetype valuetype;
   assert(napi_typeof(env, value, &valuetype) == napi_ok);
+  prinf("Valt: %s",valuetype);
+  prinf("Napi: %s",napi_string);
   return valuetype == napi_string;
 }
 
@@ -51,8 +53,9 @@ napi_value speaker_open(napi_env env, napi_callback_info info) {
   ao->rate = _rate;
   assert(napi_get_value_int32(env, args[2], &ao->format) == napi_ok); /* MPG123_ENC_* format */
 printf("----BINDINGS FILE-----");
-  printf(env);
-    prinf(args[3]);
+ // printf(env);
+ //   prinf(args[3]);
+  
   if (is_string(env, args[3])) {
     printf("INSIDE BINDINGS FILE");
     size_t device_string_size;
