@@ -28,8 +28,8 @@ typedef struct {
 bool is_string(napi_env env, napi_value value) {
   napi_valuetype valuetype;
   assert(napi_typeof(env, value, &valuetype) == napi_ok);
-  printf("Valt: %s",valuetype);
-  printf("Napi: %s",napi_string);
+  printf("Valt: %s",to_string(valuetype));
+  printf("Napi: %s",to_string(napi_string));
   return valuetype == napi_string;
 }
 
